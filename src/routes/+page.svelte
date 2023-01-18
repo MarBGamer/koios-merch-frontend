@@ -1,11 +1,5 @@
 <script>
-    import Cart from '$lib/cart.svelte';
-
-//    import { selectedAccount, chainId, defaultEvmStores } from 'svelte-web3';
-//    import { onMount } from 'svelte';
-
-//    onMount( defaultEvmStores.setProvider );
+    import Slider from '$lib/components/slider.svelte';
 </script>
 
-<Cart />
-
+<Slider />
