@@ -99,6 +99,7 @@
     .catalog .grid {
         display: grid;
         grid-template-columns: 1fr 1fr 1fr;
+        grid-gap: 100px;
     }
 
     .about h2 {

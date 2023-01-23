@@ -15,23 +15,16 @@
     }
 </script>
 
-<div class="wrapper">
-    <div class="card">
-        <img src="{$settings.cmsUrl}{imgUrl}" alt="{imgAlt}" />
-        <h3>{name}</h3>
-        <div class="bottom">
-            <span class="price">{priceLabel}</span>
-            <button on:click="{navigate}">{buttonLabel}</button>
-        </div>
+<div class="card">
+    <img src="{$settings.cmsUrl}{imgUrl}" alt="{imgAlt}" />
+    <h3>{name}</h3>
+    <div class="bottom">
+        <span class="price">{priceLabel}</span>
+        <button on:click="{navigate}">{buttonLabel}</button>
     </div>
 </div>
 
 <style>
-    .wrapper {
-        margin: 0 auto;
-        display: flex;
-    }
-
     .card {
         padding: 22px 22px 15px 22px;
         border-radius: 15px;
@@ -40,7 +33,7 @@
         font-family: 'Roboto', sans-serif;
         color: #21234C;
         filter: drop-shadow(-4px -3px 15px #FFFFFF) drop-shadow(2px 2px 19px rgba(79, 79, 79, 0.4));
-        background-color: #FFFFFF;
+        background-color: #EEEEEE;
     }
 
     .card img {
@@ -51,7 +44,7 @@
 
     .card h3 {
         margin-bottom: 10px;
-        font-size: 18px;
+        font-size: 20px;
         font-weight: 400;
         font-family: 'Roboto', sans-serif;
     }
@@ -62,12 +55,13 @@
     }
 
     .card .bottom .price {
-        font-size: 13px;
+        margin-right: 10px;
+        font-size: 14px;
         font-weight: 700;
     }
 
     .card .bottom button {
-        padding: 6px 10px;
+        padding: 6px 15px;
         font-size: 14px;
     }
 </style>

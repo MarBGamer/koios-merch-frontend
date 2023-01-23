@@ -2,7 +2,6 @@
     import { query } from 'svelte-apollo';
     import { GET_PRODUCTS } from '$lib/queries';
     import Pagination from '$lib/components/pagination.svelte';
-    import Product from '$lib/components/product.svelte';
 
     const products = query(GET_PRODUCTS);
 </script>
