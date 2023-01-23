@@ -66,7 +66,7 @@
         line-height: 22px;
         font-size: 20px;
         font-family: 'Outfit', sans-serif;
-        color: #000000;
+        color: #21234C;
     }
 
     :global(p) {
@@ -84,10 +84,33 @@
         text-transform: uppercase;
         letter-spacing: 0.1em;
         font-size: 20px;
+        font-weight: 600;
         font-family: 'Outfit', sans-serif;
         color: #FFFFFF;
         box-shadow: -4px -3px 8px #FFFFFF, 2px 2px 15px rgba(243, 24, 172, 0.35), inset 3px 7px 14px #FFFFFF60, inset -4px 5px 17px -9px #FFFFFF, inset 0 -4px 12px -1px #F318AC;
         background: radial-gradient(171.55% 171.87% at 46.36% 77.08%, #3E25D3 0%, #F318AC 100%);
+    }
+
+    :global(button:hover) {
+        cursor: pointer;
+    }
+
+    :global(button.secondary) {
+        padding: 12px 20px;
+        border: none;
+        border-radius: 15px;
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+        font-size: 20px;
+        font-weight: 600;
+        font-family: 'Outfit', sans-serif;
+        color: #21234C;
+        box-shadow: -4px -3px 8px #FFFFFF, 2px 2px 15px rgba(243, 24, 172, 0.35), inset 3px 7px 14px #FFFFFF60, inset -4px 5px 17px -9px #FFFFFF, inset 0 -4px 12px -1px #F318AC;
+        background: radial-gradient(134.93% 135.42% at 46.36% 77.08%, rgba(218, 196, 255, 0.61) 0%, rgba(120, 114, 159, 0.61) 100%);
+    }
+
+    :global(button.secondary:hover) {
+        cursor: pointer;
     }
 
     :global(.container) {

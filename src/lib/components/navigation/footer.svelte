@@ -27,13 +27,14 @@
 
 <style>
     footer {
+        margin-bottom: 30px;
         border-radius: 10px;
         box-shadow: inset 0 4px 48px #FFFFFF, inset 0 4px 19px #FFFFFF;
         background-color: #D9D9D9;
     }
 
     footer .links {
-        margin: 30px 20px 10px 20px;
+        margin: 0 20px 10px 20px;
         padding-top: 20px;
     }
 
@@ -50,7 +51,7 @@
 
     footer .links ul li a {
         text-decoration: none;
-        color: #000000;
+        color: #21234C;
     }
 
     footer .links ul li:not(:last-child)::after {
@@ -63,5 +64,6 @@
         text-align: center;
         font-family: 'Outfit', sans-serif;
         font-size: 18px;
+        color: #21234C;
     }
 </style>

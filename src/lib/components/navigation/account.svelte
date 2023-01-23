@@ -3,7 +3,7 @@
 </script>
 
 <div class="wrapper">
-    <UserIcon />
+    <UserIcon color="#21234C" />
 </div>
 
 <style>

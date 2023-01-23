@@ -1,20 +1,27 @@
 <script>
     import { getContext } from 'svelte';
+    import { goto } from '$app/navigation';
     import { settings } from '$lib/stores';
 
     export let imgUrl;
+    export let imgAlt;
     export let name;
     export let priceLabel;
     export let buttonLabel;
+    export let buttonRoute;
+
+    function navigate() {
+        goto(buttonRoute);
+    }
 </script>
 
 <div class="wrapper">
     <div class="card">
-        <img src="{$settings.cmsUrl}{imgUrl}"/>
+        <img src="{$settings.cmsUrl}{imgUrl}" alt="{imgAlt}" />
         <h3>{name}</h3>
         <div class="bottom">
             <span class="price">{priceLabel}</span>
-            <button>{buttonLabel}</button>
+            <button on:click="{navigate}">{buttonLabel}</button>
         </div>
     </div>
 </div>

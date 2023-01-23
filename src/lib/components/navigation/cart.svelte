@@ -10,7 +10,7 @@
 </script>
 
 <div class="wrapper">
-    <ShoppingBagIcon />
+    <ShoppingBagIcon color="#21234C" />
 </div>
 
 <!--<h1>Cart</h1>-->

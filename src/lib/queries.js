@@ -49,6 +49,19 @@ query {
                         }
                     }
                 }
+                about {
+                    aboutHeader
+                    description
+                    buttonLabel
+                    image {
+                        data {
+                            attributes {
+                                alternativeText
+                                url
+                            }
+                        }
+                    }
+                }
             }
         }
      }
