@@ -1,5 +1,5 @@
 <script>
-    import ShoppingBagIcon from '$lib/icons/shopping-bag.svelte';
+    import { ShoppingBagIcon } from 'svelte-feathers';
     import { count } from '$lib/stores';
 
     let products = [];

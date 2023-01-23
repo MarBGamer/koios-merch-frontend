@@ -1,24 +1,43 @@
 <script>
     import { onMount } from 'svelte';
     import Glide from '@glidejs/glide';
+    import { settings } from '$lib/stores';
+
+    export let slides = [];
 
     onMount(() => {
-        new Glide('.glide').mount();
+        new Glide('.glide', {
+            type: 'carousel',
+            startAt: 0,
+            perView: 1,
+            autoplay: 5000,
+            hoverpause: true,
+        }).mount();
     });
 </script>
 
 <div class="glide">
     <div class="glide__track" data-glide-el="track">
         <ul class="glide__slides">
-            <li class="glide__slide">0</li>
-            <li class="glide__slide">1</li>
-            <li class="glide__slide">2</li>
+            {#each slides as slide}
+                <li class="glide__slide">
+                    <div class="wrapper">
+                        <img src="{$settings.cmsUrl}{slide.attributes.url}" alt="{slide.attributes.alternativeText}" />
+                    </div>
+                </li>
+            {/each}
         </ul>
     </div>
-
-    <div class="glide__bullets" data-glide-el="controls[nav]">
-        <button class="glide__bullet" data-glide-dir="=0"></button>
-        <button class="glide__bullet" data-glide-dir="=1"></button>
-        <button class="glide__bullet" data-glide-dir="=2"></button>
-    </div>
 </div>
+
+<style>
+    .wrapper {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .wrapper img {
+        border-radius: 10px;
+    }
+</style>

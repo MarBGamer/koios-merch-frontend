@@ -1,5 +1,5 @@
 <script>
-    import UserIcon from '$lib/icons/user.svelte';
+    import { UserIcon } from 'svelte-feathers';
 </script>
 
 <div class="wrapper">
