@@ -1,15 +1,14 @@
 import { writable } from "svelte/store";
 
-const settings = writable({
+const settingsStore = writable({
     cmsUrl: 'http://localhost:1337'
 });
 
-const count = writable([
-    { name: 'Shirt' },
-    { name: 'Hoodie' },
-]);
+const filtersStore = writable({
+    category: undefined,
+});
 
 export {
-    settings,
-    count
+    settingsStore,
+    filtersStore,
 }

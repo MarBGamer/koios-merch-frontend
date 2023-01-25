@@ -1,7 +1,7 @@
 <script>
     import { getContext } from 'svelte';
     import { goto } from '$app/navigation';
-    import { settings } from '$lib/stores';
+    import { settingsStore } from '$lib/stores';
     import Slider from '$lib/components/slider.svelte';
     import Card from '$lib/components/card.svelte';
 
@@ -44,7 +44,7 @@
     <h2>{$home.data.home.data.attributes.about.aboutHeader}</h2>
     <div class="wrapper">
         <img
-            src="{$settings.cmsUrl}{$home.data.home.data.attributes.about.image.data.attributes.url}"
+            src="{$settingsStore.cmsUrl}{$home.data.home.data.attributes.about.image.data.attributes.url}"
             alt="{$home.data.home.data.attributes.about.image.data.attributes.alternativeText}"
         />
         <article>

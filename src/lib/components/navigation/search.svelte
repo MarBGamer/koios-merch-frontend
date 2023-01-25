@@ -5,7 +5,9 @@
 </script>
 
 <div class="bar">
-    <SearchIcon color="#A9A9A9" size="18" class="icon" />
+    <div class="icon">
+        <SearchIcon color="#A9A9A9" size="18" />
+    </div>
     <input class="input" placeholder="{searchPlaceholder}" />
 </div>
 
@@ -19,6 +21,7 @@
     }
 
     .bar .icon {
+        display: flex;
         margin: auto 0;
     }
 

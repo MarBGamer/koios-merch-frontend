@@ -69,6 +69,15 @@
         color: #21234C;
     }
 
+    :global(h4) {
+        margin: 0;
+        line-height: 110%;
+        font-size: 18px;
+        font-weight: 400;
+        font-family: 'Outfit', sans-serif;
+        color: #151515;
+    }
+
     :global(p) {
         margin: 0;
         line-height: 21px;
@@ -104,9 +113,9 @@
         font-size: 20px;
         font-weight: 600;
         font-family: 'Outfit', sans-serif;
-        color: #21234C;
-        box-shadow: -4px -3px 8px #FFFFFF, 2px 2px 15px rgba(243, 24, 172, 0.35), inset 3px 7px 14px #FFFFFF60, inset -4px 5px 17px -9px #FFFFFF, inset 0 -4px 12px -1px #F318AC;
-        background: radial-gradient(134.93% 135.42% at 46.36% 77.08%, rgba(218, 196, 255, 0.61) 0%, rgba(120, 114, 159, 0.61) 100%);
+        color: #2D2A6E;
+        box-shadow: -4px -3px 8px #FFFFFF, 2px 2px 15px rgba(243, 24, 172, 0.15), inset 3px 7px 14px #FFFFFF60, inset -4px 5px 17px -9px #FFFFFF;
+        background: radial-gradient(57.81% 179.96% at 49.7% 50%, #D0C2E9 0%, #B8B2D9 100%);
     }
 
     :global(button.secondary:hover) {

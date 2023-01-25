@@ -1,7 +1,7 @@
 <script>
     import { onMount } from 'svelte';
     import Glide from '@glidejs/glide';
-    import { settings } from '$lib/stores';
+    import { settingsStore } from '$lib/stores';
 
     export let slides = [];
 
@@ -22,7 +22,7 @@
             {#each slides as slide}
                 <li class="glide__slide">
                     <div class="wrapper">
-                        <img src="{$settings.cmsUrl}{slide.attributes.url}" alt="{slide.attributes.alternativeText}" />
+                        <img src="{$settingsStore.cmsUrl}{slide.attributes.url}" alt="{slide.attributes.alternativeText}" />
                     </div>
                 </li>
             {/each}

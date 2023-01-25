@@ -23,7 +23,7 @@
         width: 24px;
         height: 24px;
         border-radius: 100px;
-        box-shadow: -2px -2px 4px #FFFFFF, 0px 4px 4px rgba(0, 0, 0, 0.12), inset 1px 4px 2px #F9F9F9;
+        box-shadow: -2px -2px 4px #FFFFFF, 0 4px 4px rgba(0, 0, 0, 0.12), inset 1px 4px 2px #F9F9F9;
         color: #8C8C8C;
         background: #EEEEEE;
     }

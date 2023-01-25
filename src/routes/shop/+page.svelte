@@ -1,32 +1,28 @@
 <script>
     import { query } from 'svelte-apollo';
-    import { GET_PRODUCTS } from '$lib/queries';
-    import Pagination from '$lib/components/pagination.svelte';
+    import { GET_SHOP } from '$lib/queries';
+    import Pagination from '$lib/components/shop/pagination.svelte';
+    import Filters from '$lib/components/shop/filters.svelte';
+    import Products from '$lib/components/shop/products.svelte';
 
-    const products = query(GET_PRODUCTS);
+    const shop = query(GET_SHOP);
 </script>
 
-{#if $products.loading}
+{#if $shop.loading}
     <p>Loading...</p>
-{:else if $products.error}
+{:else if $shop.error}
     <p>An error occured</p>
 {:else}
-    <Pagination />
-
-    <div class="filters">
-        <h2>category</h2>
+<!--    <Pagination />-->
+    <div class="wrapper">
+        <Filters shop="{$shop}" />
+        <Products />
     </div>
-
-<!--    <div class="grid">-->
-<!--        {#each $products.data.products.data as product}-->
-<!--            <Product />-->
-<!--        {/each}-->
-<!--    </div>-->
 {/if}
 
 <style>
-    .grid {
-        display: grid;
-        grid-template-columns: 1fr 1fr 1fr;
+    .wrapper {
+        margin: 30px 0;
+        display: flex;
     }
 </style>

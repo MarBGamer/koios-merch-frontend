@@ -1,7 +1,7 @@
 <script>
     import { getContext } from 'svelte';
     import { goto } from '$app/navigation';
-    import { settings } from '$lib/stores';
+    import { settingsStore } from '$lib/stores';
 
     export let imgUrl;
     export let imgAlt;
@@ -16,7 +16,7 @@
 </script>
 
 <div class="card">
-    <img src="{$settings.cmsUrl}{imgUrl}" alt="{imgAlt}" />
+    <img src="{$settingsStore.cmsUrl}{imgUrl}" alt="{imgAlt}" />
     <h3>{name}</h3>
     <div class="bottom">
         <span class="price">{priceLabel}</span>
@@ -61,7 +61,8 @@
     }
 
     .card .bottom button {
-        padding: 6px 15px;
+        padding: 8px 15px;
+        border-radius: 100px;
         font-size: 14px;
     }
 </style>
