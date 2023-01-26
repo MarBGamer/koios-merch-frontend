@@ -15,8 +15,8 @@
 {:else}
 <!--    <Pagination />-->
     <div class="wrapper">
-        <Filters shop="{$shop}" />
-        <Products />
+        <Filters filtersLabel="{$shop.data.shop.data.attributes.filters.filtersHeader}" categories="{$shop.data.categories}" />
+        <Products buttonLabel="{$shop.data.shop.data.attributes.general.buttonLabel}" />
     </div>
 {/if}
 

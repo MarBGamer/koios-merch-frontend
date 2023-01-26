@@ -73,6 +73,9 @@ const GET_SHOP = gql`
         shop(locale: "en") {
             data {
                 attributes {
+                    general {
+                        buttonLabel
+                    }
                     filters {
                         filtersHeader
                     }
@@ -88,6 +91,24 @@ const GET_SHOP = gql`
                 }
             }
         }
+
+        styles(locale: "en") {
+            data {
+                id
+                attributes {
+                    name
+                }
+            }
+        }
+
+        colors(locale: "en") {
+            data {
+                id
+                attributes {
+                    color
+                }
+            }
+        }
     }
 `;
 
@@ -99,7 +120,7 @@ const GET_PRODUCTS = gql`
                 attributes {
                     name
                     price
-                    image {
+                    images {
                         data {
                             attributes {
                                 alternativeText
@@ -120,8 +141,93 @@ const GET_PRODUCTS = gql`
     }
 `;
 
+const GET_PRODUCT = gql`
+    query($id: ID) {
+        product(id: $id, locale: "en") {
+            data {
+                attributes {
+                    name
+                    price
+                    description
+                    types {
+                        data {
+                            attributes {
+                                name
+                            }
+                        }
+                    }
+                    styles {
+                        data {
+                            attributes {
+                                name
+                            }
+                        }
+                    }
+                    sizes {
+                        data {
+                            attributes {
+                                symbol
+                            }
+                        }
+                    }
+                    colors {
+                        data {
+                            attributes {
+                                name
+                                color
+                            }
+                        }
+                    }
+                    images {
+                        data {
+                            attributes {
+                                alternativeText
+                                url
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        productPage(locale: "en") {
+            data {
+                attributes {
+                    productDetails {
+                        typeLabel
+                        sizeLabel
+                        styleLabel
+                        colorLabel
+                        buttonLabel
+                        descriptionLabel
+                        sizeguideLabel
+                        sizeguideText
+                    }
+                    relatedProducts {
+                        relatedLabel
+                        cards {
+                            name
+                            priceLabel
+                            buttonLabel
+                            image {
+                                data {
+                                    attributes {
+                                        alternativeText
+                                        url
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+`;
+
 export {
     GET_HOME,
     GET_SHOP,
     GET_PRODUCTS,
+    GET_PRODUCT,
 }

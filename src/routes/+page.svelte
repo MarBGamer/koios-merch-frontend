@@ -6,10 +6,6 @@
     import Card from '$lib/components/card.svelte';
 
     const home = getContext('home');
-
-    function navigateToShop() {
-        goto('/shop');
-    }
 </script>
 
 <div class="hero">
@@ -17,7 +13,7 @@
         <h1>{$home.data.home.data.attributes.hero.heroSlogan}</h1>
         <h1>{$home.data.home.data.attributes.hero.heroHeader}</h1>
         <p>{$home.data.home.data.attributes.hero.heroInformation}</p>
-        <button on:click="{navigateToShop}">{$home.data.home.data.attributes.hero.heroButton}</button>
+        <button on:click="{() => goto('/shop')}">{$home.data.home.data.attributes.hero.heroButton}</button>
     </div>
     <div class="slider">
         <Slider slides="{$home.data.home.data.attributes.hero.slider.data}" />
@@ -49,7 +45,7 @@
         />
         <article>
             <p>{$home.data.home.data.attributes.about.description}</p>
-            <button class="secondary">{$home.data.home.data.attributes.about.buttonLabel}</button>
+            <button class="secondary" on:click="{() => goto('/about')}">{$home.data.home.data.attributes.about.buttonLabel}</button>
         </article>
     </div>
 </div>

@@ -27,7 +27,7 @@
 
 <style>
     footer {
-        margin-bottom: 30px;
+        margin: 30px auto;
         border-radius: 10px;
         box-shadow: inset 0 4px 48px #FFFFFF, inset 0 4px 19px #FFFFFF;
         background-color: #D9D9D9;

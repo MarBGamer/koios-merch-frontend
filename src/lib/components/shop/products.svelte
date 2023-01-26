@@ -5,6 +5,8 @@
     import { filtersStore } from '$lib/stores';
     import Card from '$lib/components/card.svelte';
 
+    export let buttonLabel;
+
     let querySettings = { page: 1 };
     let products;
 
@@ -34,11 +36,11 @@
     <div class="grid">
         {#each $products.data.products.data as product}
             <Card
-                imgUrl="{product.attributes.image.data.attributes.url}"
-                imgAlt="{product.attributes.image.data.attributes.alternativeText}"
+                imgUrl="{product.attributes.images.data[0].attributes.url}"
+                imgAlt="{product.attributes.images.data[0].attributes.alternativeText}"
                 name="{product.attributes.name}"
                 priceLabel="{product.attributes.price}"
-                buttonLabel="add to cart"
+                buttonLabel="{buttonLabel}"
                 buttonRoute="/shop/{product.id}"
             />
         {/each}

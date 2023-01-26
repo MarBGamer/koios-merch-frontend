@@ -44,6 +44,11 @@
 {/if}
 
 <style>
+    :global(.container) {
+        margin: 0 auto;
+        max-width: 1400px;
+    }
+
     :global(h1) {
         margin: 0;
         line-height: 44px;
@@ -120,10 +125,5 @@
 
     :global(button.secondary:hover) {
         cursor: pointer;
-    }
-
-    :global(.container) {
-        margin: 0 auto;
-        max-width: 1200px;
     }
 </style>

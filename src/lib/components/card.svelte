@@ -9,10 +9,6 @@
     export let priceLabel;
     export let buttonLabel;
     export let buttonRoute;
-
-    function navigate() {
-        goto(buttonRoute);
-    }
 </script>
 
 <div class="card">
@@ -20,19 +16,21 @@
     <h3>{name}</h3>
     <div class="bottom">
         <span class="price">{priceLabel}</span>
-        <button on:click="{navigate}">{buttonLabel}</button>
+        <button on:click="{() => goto(buttonRoute)}">{buttonLabel}</button>
     </div>
 </div>
 
 <style>
     .card {
         padding: 22px 22px 15px 22px;
+        border: 4px solid #FFFFFF;
         border-radius: 15px;
         text-align: left;
         text-transform: capitalize;
         font-family: 'Roboto', sans-serif;
         color: #21234C;
         filter: drop-shadow(-4px -3px 15px #FFFFFF) drop-shadow(2px 2px 19px rgba(79, 79, 79, 0.4));
+        box-shadow: inset 0 0 15px 5px #FFFFFF;
         background-color: #EEEEEE;
     }
 
@@ -44,6 +42,7 @@
 
     .card h3 {
         margin-bottom: 10px;
+        text-transform: capitalize;
         font-size: 20px;
         font-weight: 400;
         font-family: 'Roboto', sans-serif;

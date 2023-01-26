@@ -2,7 +2,8 @@
     import { onDestroy } from 'svelte';
     import { filtersStore } from '$lib/stores';
 
-    export let shop;
+    export let filtersLabel;
+    export let categories;
 
     let filters;
     const unsubscribe = filtersStore.subscribe((value) => {
@@ -29,9 +30,9 @@
 </script>
 
 <div class="wrapper">
-    <h3>{shop.data.shop.data.attributes.filters.filtersHeader}</h3>
-    {#each shop.data.categories.data as category}
-        <h4 class:active="{filters.category === category.id}" on:click="{changeCategory(category.id)}">{category.attributes.name}</h4>
+    <h3>{filtersLabel}</h3>
+    {#each categories.data as category}
+        <h4 class:active="{filters.category === category.id}" on:click="{() => changeCategory(category.id)}">{category.attributes.name}</h4>
     {/each}
 </div>
 
@@ -54,6 +55,7 @@
     .wrapper h4 {
         margin-bottom: 5px;
         padding: 5px 10px;
+        text-transform: capitalize;
         user-select: none;
         -webkit-user-select: none;
     }
