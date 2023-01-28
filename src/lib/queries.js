@@ -5,6 +5,7 @@ const GET_HOME = gql`
         home(locale: "en") {
             data {
                 attributes {
+                    title
                     navigation {
                         shopLabel
                         galleryLabel
@@ -39,6 +40,7 @@ const GET_HOME = gql`
                             name
                             priceLabel
                             buttonLabel
+                            buttonLink
                             image {
                                 data {
                                     attributes {
@@ -51,7 +53,9 @@ const GET_HOME = gql`
                     }
                     about {
                         aboutHeader
-                        description
+                        description {
+                            text
+                        }
                         buttonLabel
                         image {
                             data {
@@ -73,6 +77,7 @@ const GET_SHOP = gql`
         shop(locale: "en") {
             data {
                 attributes {
+                    title
                     general {
                         buttonLabel
                     }
@@ -91,30 +96,12 @@ const GET_SHOP = gql`
                 }
             }
         }
-
-        styles(locale: "en") {
-            data {
-                id
-                attributes {
-                    name
-                }
-            }
-        }
-
-        colors(locale: "en") {
-            data {
-                id
-                attributes {
-                    color
-                }
-            }
-        }
     }
 `;
 
 const GET_PRODUCTS = gql`
     query($id: ID, $page: Int) {
-        products(filters: { category: { id: { eq: $id } } }, locale: "en", pagination: { page: $page, pageSize: 9 }) {
+        products(filters: { category: { id: { eq: $id } } }, locale: "en", pagination: { page: $page, pageSize: 6 }) {
             data {
                 id
                 attributes {
@@ -137,7 +124,6 @@ const GET_PRODUCTS = gql`
                 }
             }
         }
-
     }
 `;
 
@@ -209,6 +195,7 @@ const GET_PRODUCT = gql`
                             name
                             priceLabel
                             buttonLabel
+                            buttonLink
                             image {
                                 data {
                                     attributes {
@@ -225,9 +212,58 @@ const GET_PRODUCT = gql`
     }
 `;
 
+const GET_ABOUT = gql`
+    query {
+        about(locale: "en") {
+            data {
+                attributes {
+                    about {
+                        aboutHeader
+                        merchHeader
+                        merchText {
+                            text
+                        }
+                        worldHeader
+                        worldText {
+                            text
+                        }
+                        image {
+                            data {
+                                attributes {
+                                    alternativeText
+                                    url
+                                }
+                            }
+                        }
+                    }
+                    community {
+                        communityHeader
+                        cards {
+                            name
+                            buttonLabel
+                            buttonLink
+                            image {
+                                data {
+                                    attributes {
+                                        alternativeText
+                                        url
+                                    }
+                                }
+                            }
+                        }
+                        socialsHeader
+                        twitterLink
+                    }
+                }
+            }
+        }
+    }
+`;
+
 export {
     GET_HOME,
     GET_SHOP,
     GET_PRODUCTS,
     GET_PRODUCT,
+    GET_ABOUT,
 }

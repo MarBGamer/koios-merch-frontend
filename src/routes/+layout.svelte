@@ -4,6 +4,7 @@
     import { query } from 'svelte-apollo';
     import { setContext } from 'svelte';
     import { GET_HOME } from '$lib/queries';
+    import { settingsStore } from '$lib/stores';
     import Navigation from '$lib/components/navigation/header.svelte';
     import Footer from '$lib/components/navigation/footer.svelte';
 
@@ -17,11 +18,11 @@
     setContext('home', home);
 </script>
 
-{#if $home.loading}
-    <p>Loading...</p>
-{:else if $home.error}
-    <p>An error occured.</p>
-{:else}
+<svelte:head>
+    <title>{$settingsStore.baseTitle}</title>
+</svelte:head>
+
+{#if !$home.loading && !$home.error}
     <Navigation
         searchPlaceholder="{$home.data.home.data.attributes.navigation.searchPlaceholder}"
         shopLabel="{$home.data.home.data.attributes.navigation.shopLabel}"

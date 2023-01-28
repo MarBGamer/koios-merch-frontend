@@ -2,6 +2,7 @@
     import { page } from '$app/stores';
     import { query } from 'svelte-apollo';
     import { GET_PRODUCT } from '$lib/queries';
+    import { settingsStore } from '$lib/stores';
     import Slider from '$lib/components/slider.svelte';
     import SizeSelector from '$lib/components/product/sizeSelector.svelte';
     import DropdownSelector from '$lib/components/product/dropdownSelector.svelte';
@@ -15,11 +16,15 @@
     let activeParagraph = 0;
 </script>
 
+<svelte:head>
+    <title>{$product.data?.product.data.attributes.name ?? ''} {$settingsStore.baseTitle}</title>
+</svelte:head>
+
 {#if !$product.loading && !$product.error}
     <div class="product">
         <div class="slider">
             <div class="box">
-                <Slider slides="{$product.data.product.data.attributes.images.data}" />
+                <Slider slides="{$product.data.product.data.attributes.images.data}" controls="true" />
             </div>
         </div>
         <div class="details">
@@ -72,7 +77,7 @@
                     name="{card.name}"
                     priceLabel="{card.priceLabel}"
                     buttonLabel="see more"
-                    buttonRoute="/shop"
+                    buttonRoute="{card.buttonLink}"
                 />
             {/each}
         </div>

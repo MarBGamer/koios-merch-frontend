@@ -8,6 +8,10 @@
     const home = getContext('home');
 </script>
 
+<svelte:head>
+    <title>{$home.data.home.data.attributes.title} {$settingsStore.baseTitle}</title>
+</svelte:head>
+
 <div class="hero">
     <div class="content">
         <h1>{$home.data.home.data.attributes.hero.heroSlogan}</h1>
@@ -30,7 +34,7 @@
                 name="{card.name}"
                 priceLabel="{card.priceLabel}"
                 buttonLabel="see more"
-                buttonRoute="/shop"
+                buttonRoute="{card.buttonLink}"
             />
         {/each}
     </div>
@@ -43,10 +47,14 @@
             src="{$settingsStore.cmsUrl}{$home.data.home.data.attributes.about.image.data.attributes.url}"
             alt="{$home.data.home.data.attributes.about.image.data.attributes.alternativeText}"
         />
-        <article>
-            <p>{$home.data.home.data.attributes.about.description}</p>
+        <div class="description">
+            <article>
+                {#each $home.data.home.data.attributes.about.description as text}
+                    <p>{text.text}</p>
+                {/each}
+            </article>
             <button class="secondary" on:click="{() => goto('/about')}">{$home.data.home.data.attributes.about.buttonLabel}</button>
-        </article>
+        </div>
     </div>
 </div>
 
@@ -115,13 +123,24 @@
         display: flex;
     }
 
-    .about .wrapper article {
-        margin: auto 30px;
+    .about .wrapper .description {
+        margin: auto 0;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .about .wrapper .description article {
+        margin: 0 auto;
+        max-width: 75%;
         text-align: center;
         font-size: 12px;
     }
 
-    .about .wrapper article p {
-        margin-bottom: 25px;
+    .about .wrapper .description article p {
+        margin-bottom: 1em;
+    }
+
+    .about .wrapper .description button {
+        margin: 60px auto 0 auto;
     }
 </style>

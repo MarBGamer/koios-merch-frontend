@@ -1,9 +1,11 @@
 <script>
     import { onMount } from 'svelte';
-    import Glide from '@glidejs/glide';
+    import { ChevronLeftIcon, ChevronRightIcon } from 'svelte-feathers';
     import { settingsStore } from '$lib/stores';
+    import Glide from '@glidejs/glide';
 
     export let slides = [];
+    export let controls = false;
 
     onMount(() => {
         new Glide('.glide', {
@@ -28,6 +30,14 @@
             {/each}
         </ul>
     </div>
+
+    {#if controls}
+        <div class="glide__bullets" data-glide-el="controls[nav]">
+            {#each slides as slide, i}
+                <button class="glide__bullet" data-glide-dir="={i}"></button>
+            {/each}
+        </div>
+    {/if}
 </div>
 
 <style>
@@ -40,5 +50,9 @@
     .wrapper img {
         width: 100%;
         border-radius: 10px;
+    }
+
+    button {
+        background: #FFFFFF;
     }
 </style>
